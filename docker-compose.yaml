@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mimir:
+    image: grafana/mimir:latest
+    container_name: mimir
+    ports:
+      - 9009:9009
+    volumes:
+      - "$(pwd)"/grafana/mimir/mimir-config.yaml:/etc/mimir/mimir-config.yaml
+    command:
+      - '--config.file=/etc/mimir/mimir-config.yaml'
+    networks:
+      - grafana
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - 3000:3000
+    networks:
+      - grafana
+
+  sandbox:
+    image: sandbox
+    container_name: sandbox
+    ports:
+      - 8080:8080
+    networks:
+      - grafana
+    depends_on:
+      - grafana
+      - mimir
+    environment:
+      - OTLP_PROP="$(pwd)"/opentelemetry/opentelemetry.properties
+      - OTLP_JAR="$(pwd)"/opentelemetry/opentelemetry-javaagent.jar
