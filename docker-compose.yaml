@@ -34,3 +34,7 @@ services:
     environment:
       - OTLP_PROP="$(pwd)"/opentelemetry/opentelemetry.properties
       - OTLP_JAR="$(pwd)"/opentelemetry/opentelemetry-javaagent.jar
+
+networks:
+  grafana:
+    driver: bridge
