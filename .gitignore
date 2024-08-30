@@ -1,1 +1,4 @@
 .idea
+target
+sandbox-web-app/target
+sandbox-web-app/.idea
