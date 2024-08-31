@@ -1,4 +1,12 @@
-# <u> Observability Setup </u>
+# <u> Observability Setup :</u>
+
+### Prerequisite
+
+```text
+ java-17
+```
+
+### Description
 
 To export the metrics from 
 
@@ -6,7 +14,7 @@ To export the metrics from
 
 with help of opentelemetry javaagent setup.
 
-## Steps :
+### Steps :
 
 ```bash
  git clone https://github.com/anooptiwari2402/observability-setup.git
