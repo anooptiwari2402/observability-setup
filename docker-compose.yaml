@@ -7,7 +7,7 @@ services:
     ports:
       - 9009:9009
     volumes:
-      - "$(pwd)"/grafana/mimir/mimir-config.yaml:/etc/mimir/mimir-config.yaml
+      - ./grafana/mimir/mimir-config.yaml:/etc/mimir/mimir-config.yaml
     command:
       - '--config.file=/etc/mimir/mimir-config.yaml'
     networks:
@@ -31,9 +31,6 @@ services:
     depends_on:
       - grafana
       - mimir
-    environment:
-      - OTLP_PROP="$(pwd)"/opentelemetry/opentelemetry.properties
-      - OTLP_JAR="$(pwd)"/opentelemetry/opentelemetry-javaagent.jar
 
 networks:
   grafana:
