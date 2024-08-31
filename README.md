@@ -12,7 +12,7 @@ To export the metrics from
 
 ``app -> mimir -> grafana``
 
-with help of opentelemetry javaagent setup.
+with help of ***opentelemetry javaagent*** setup.
 
 ### Steps :
 
